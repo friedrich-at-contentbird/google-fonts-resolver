@@ -1,6 +1,6 @@
 # Introduction
 
-This is a solution for web fonts self-hosted CDN.
+This is a solution for web fonts self-hosted CDN. It reduces time latency to Google web fonts server. In our context, it reduced ~7x times (from `200ms` to `30ms`).
 
 After deploying, you just replace `fonts.googleapis.com` to your `[proxy_fonts_hostname]` in stylesheet source.
 
