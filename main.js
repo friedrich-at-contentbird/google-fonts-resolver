@@ -24,11 +24,13 @@ app.get('/css', function (req, res) {
             return res.status(400).send('Bad Request');
         }
 
-        res.set(response.headers)
+        res.set({
+            'content-type': 'text/css; charset=utf-8'
+        })
         res.send(response.body.replace(new RegExp('fonts.gstatic.com', 'g'), replaced_host))
     });
 })
 
 app.listen(port, function () {
-  console.log('Google Fonts Resolver is listening on port 3000 !')
+  console.log('Google Fonts Resolver is listening on port ' + port + ' !')
 })
