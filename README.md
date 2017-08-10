@@ -1,8 +1,24 @@
+# Introduction
+
+This is a solution for web fonts self-hosted CDN.
+
+After deploying, you just replace `fonts.googleapis.com` to your `[proxy_fonts_hostname]` in stylesheet source.
+
+Example :
+
+```html
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&amp;subset=vietnamese" rel="stylesheet">
+
+to
+
+<link href="https://fonts.example.com/css?family=Noto+Sans:400,400i,700,700i&amp;subset=vietnamese" rel="stylesheet">
+```
+
 # Installation
 
 ```bash
 $ npm install
-$ node main.js [proxy_fonts_hostname]
+$ node main.js [proxy_fonts_hostname] [port=3000]
 ```
 
 # Usage
@@ -14,8 +30,8 @@ proxy_cache_path /var/nginx/cdn_cache levels=1:2 use_temp_path=off keys_zone=cdn
 
 
 server {
-	listen 443;
-	listen [::]:443;
+	listen 443 http2;
+	listen [::]:443 http2;
 
 	server_name [proxy_fonts_hostname];
 	
