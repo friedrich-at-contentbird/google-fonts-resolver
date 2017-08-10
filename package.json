@@ -1,0 +1,24 @@
+{
+  "name": "google-fonts-resolver",
+  "version": "1.0.0",
+  "description": "Google Fonts Resolver",
+  "main": "main.js",
+  "dependencies": {
+    "express": "^4.15.4",
+    "request": "^2.81.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khanhicetea/google-fonts-resolver.git"
+  },
+  "author": "KhanhIceTea",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/khanhicetea/google-fonts-resolver/issues"
+  },
+  "homepage": "https://github.com/khanhicetea/google-fonts-resolver#readme"
+}
