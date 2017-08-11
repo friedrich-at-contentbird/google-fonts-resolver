@@ -28,6 +28,11 @@ NGINX configuration file
 ```nginx
 proxy_cache_path /var/nginx/cdn_cache levels=1:2 use_temp_path=off keys_zone=cdn_cache:1024m max_size=1G inactive=14d;
 
+map $http_user_agent $ua_fonts {
+    default 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36';
+    ~(MSIE\ 8) 'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0)';
+    ~(MSIE|iPhone) 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)';
+}
 
 server {
 	listen 443 http2;
@@ -41,11 +46,11 @@ server {
     location /css {
         proxy_pass http://127.0.0.1:3000;
         proxy_http_version 1.1;
-        proxy_set_header User-Agent $http_user_agent;
+        proxy_set_header User-Agent $ua_fonts;
         proxy_redirect off;
 
         proxy_cache cdn_cache;
-        proxy_cache_key "$request_uri";
+        proxy_cache_key "$request_uri$ua_fonts";
         proxy_cache_lock on;
         proxy_cache_lock_age 5s;
         proxy_cache_lock_timeout 5s;
