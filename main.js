@@ -7,7 +7,6 @@ const port = args[1] || 3000
 
 app.get('/css', function (req, res) {
     const url = "https://fonts.googleapis.com" + req.originalUrl
-    
 
     request.get({
         url: url,
