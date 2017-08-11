@@ -5,10 +5,6 @@ const args = process.argv.slice(2)
 const replaced_host = args[0] || null
 const port = args[1] || 3000
 
-app.get('/', function (req, res) {
-    res.send('Hi !')
-})
-
 app.get('/css', function (req, res) {
     const url = "https://fonts.googleapis.com" + req.originalUrl
     
@@ -31,6 +27,7 @@ app.get('/css', function (req, res) {
     });
 })
 
+app.disable('x-powered-by');
 app.listen(port, function () {
   console.log('Google Fonts Resolver is listening on port ' + port + ' !')
 })
