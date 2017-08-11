@@ -2,7 +2,7 @@ const request = require('request')
 const express = require('express')
 const app = express()
 const args = process.argv.slice(2)
-const replaced_host = args[0] || null
+const replaced_host = args[0] || 'fonts.gstatic.com'
 const port = args[1] || 3000
 
 app.get('/css', function (req, res) {
