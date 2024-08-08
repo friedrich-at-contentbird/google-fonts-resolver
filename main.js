@@ -24,7 +24,9 @@ app.get('/css2?', function (req, res) {
         res.set({
             'content-type': 'text/css; charset=utf-8'
         });
+        
         res.send(response.body.replace(new RegExp('fonts.gstatic.com', 'g'), replaced_host));
+        //res.send(response.body.replace(new RegExp('fonts.gstatic.com', 'g'), req.hostname));
     });
 });
 
