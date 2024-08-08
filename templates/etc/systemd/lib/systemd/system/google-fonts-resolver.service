@@ -1,0 +1,14 @@
+[Unit]
+Description=Google Fonts Resolver
+Documentation=https://github.com/khanhicetea/google-fonts-resolver#readme
+After=network.target
+
+[Service]
+Type=simple
+User=http
+WorkingDirectory=/directory-of/GoogleFontsResolver
+ExecStart=/usr/bin/node /directory-of/GoogleFontsResolver/main.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
