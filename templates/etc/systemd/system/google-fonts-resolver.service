@@ -7,7 +7,7 @@ After=network.target
 Type=simple
 User=http
 WorkingDirectory=/directory-of/GoogleFontsResolver
-ExecStart=/usr/bin/node /directory-of/GoogleFontsResolver/main.js
+ExecStart=/usr/bin/node /directory-of/GoogleFontsResolver/main.js fonts.doma.in 3000
 Restart=on-failure
 
 [Install]
